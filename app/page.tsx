@@ -52,7 +52,7 @@ export default function Home() {
       <UsedByList />
 
       <SignInDialog open={!signedIn} onClick={async (username, password) => {
-        console.log(username+' ' + password);
+        console.log(username);
         let data = await createSession(username, password);
         setSignedIn(true);
         setSid(data.sid);

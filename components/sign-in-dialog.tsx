@@ -10,6 +10,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { AlertDialogDescription, AlertDialogProps } from "@radix-ui/react-alert-dialog";
+import Link from "next/link";
 import { useRef } from "react";
 
 interface SignInDialogProps extends AlertDialogProps {
@@ -29,12 +30,14 @@ export default function SignInDialog({onClick, ...props}: SignInDialogProps) {
     <AlertDialog {...props}>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Please sign in to continue</AlertDialogTitle>
+          <AlertDialogTitle>Sign in to continue</AlertDialogTitle>
           <AlertDialogDescription>
-            You might need to wait a bit after pressing {'"sign in."'}
+            The app will only use your password to sign in on your behalf once.
+            The server does not retain your login information. <Link href='/privacy-policy' className='underline'>Privacy policy</Link>
           </AlertDialogDescription>
           <AlertDialogDescription>
-            Also, your password will not be saved (trust).
+            Note: Please wait a bit after pressing {'"sign in." '}
+            If you have to wait more than a few seconds, chances are you entered the wrong password.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <div className="grid w-full max-w-sm items-center gap-1.5">

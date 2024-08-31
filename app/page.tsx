@@ -6,6 +6,12 @@ import SignInDialog from "@/components/sign-in-dialog";
 import { Button } from "@/components/ui/button";
 import UsedByList from "@/components/used-by-list";
 import { useState } from "react";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+import Chatbox from "@/components/chatbox";
 
 export interface CourseItem {
   cid: string;
@@ -77,10 +83,17 @@ export default function Home() {
       {courseMembers != null && <>
         <h1 className='scroll-m-20 text-3xl font-bold tracking-tight leading-loose'>Do you know your class?</h1>
         <Flashcards members={courseMembers} cid={cid as string} sid={sid} />
+        <h1 className='scroll-m-20 text-3xl font-bold tracking-tight leading-loose'>Class chat</h1>
+        <Chatbox cid={cid as string} sid={sid} />
         <h1 className='scroll-m-20 text-3xl font-bold tracking-tight leading-loose'>All class members (minus ones w/o photos)</h1>
         <div className='flex flex-wrap'>
           {Object.values(courseMembers).map(({name, img}) => (
-            <img src={img} className='w-16 md:w-32' key={img}></img>
+            <Popover key={img}>
+              <PopoverTrigger>
+                <img src={img} className='w-16 md:w-32'/>
+              </PopoverTrigger>
+              <PopoverContent className='w-fit'>{name}</PopoverContent>
+            </Popover>
           ))}
         </div>
       </>}

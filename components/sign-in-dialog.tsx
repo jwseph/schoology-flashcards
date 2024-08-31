@@ -31,7 +31,7 @@ export default function SignInDialog({onClick, ...props}: SignInDialogProps) {
         <AlertDialogHeader>
           <AlertDialogTitle>Please sign in to continue</AlertDialogTitle>
           <AlertDialogDescription>
-            You might need to wait a bit after pressing "sign in."
+            You might need to wait a bit after pressing {'"sign in."'}
           </AlertDialogDescription>
           <AlertDialogDescription>
             Also, your password will not be saved (trust).

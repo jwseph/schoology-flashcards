@@ -7,7 +7,7 @@ export default function PrivacyPolicy() {
       <Link href='/' className='underline'>Return home</Link>
       <h2 className='scroll-m-20 text-2xl font-bold tracking-tight leading-loose'>In a nutshell: how Schoology Flashcards handles your data</h2>
       <ol className='list-decimal list-inside'>
-        <li>You enter your Schoology login school ID and password. Both are sent to the server. If you're on https, this info is impossible to intercept.</li>
+        <li>You enter your Schoology login school ID and password. Both are sent to the server. If you are on https, this info is impossible to intercept.</li>
         <li>The server then uses your school ID and password to sign into Schoology, creating a Schoology session. The server saves the Schoology session but discards your school ID and password.</li>
         <li>The server fetches a list of your courses using the session.</li>
         <li>If you select a course, the server fetches the name and photo URL of all members in that course.</li>

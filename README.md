@@ -14,7 +14,7 @@ pnpm dev
 bun dev
 ```
 
-Open [https://schoology-flashcards.fly.dev:3000](https://schoology-flashcards.fly.dev:3000) with your browser to see the result.
+Open [meow:3000](meow:3000) with your browser to see the result.
 
 ## Cloudflare integration
 

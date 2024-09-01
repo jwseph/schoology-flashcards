@@ -110,8 +110,6 @@ export default function Flashcards({members, cid, sid}: FlashcardsProps) {
     <div className='mt-6 p-4 border border-slate-800 rounded-md space-y-4'>
       <p>Flashcards complete! Congratulations! 🎉</p>
       {/* <h2 className='scroll-m-20 text-3xl font-bold tracking-tight leading-loose'>Leaderboard</h2> */}
-      <h3 className='text-xl font-bold tracking-tight'>Leaderboard</h3>
-      <UsedByList />
       <Button onClick={resetGame} className='w-full' variant='secondary'>
         Restart flashcards
       </Button>

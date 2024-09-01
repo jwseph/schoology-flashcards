@@ -95,7 +95,9 @@ export default function Home() {
               {courseMembers != null ? <>
                 <h1 className='scroll-m-20 text-3xl font-bold tracking-tight leading-loose'>Class flashcards</h1>
                 <p>{"Practice naming your classmates/teachers!"}</p>
-                <Flashcards members={courseMembers} cid={cid as string} sid={sid} />
+                  <Flashcards members={courseMembers} cid={cid as string} sid={sid} />
+                <h3 className='text-xl font-bold tracking-tight mt-4'>Leaderboard</h3>
+                <UsedByList />
               </> : (
                 <p>Select a course to continue.</p>
               )}

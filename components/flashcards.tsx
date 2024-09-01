@@ -50,7 +50,7 @@ export default function Flashcards({members, cid, sid}: FlashcardsProps) {
   useEffect(() => {
     if (completed && completed == Object.keys(members).length) {
       fetch(
-        `http://localhost/flashcards/complete_course?sid=${encodeURIComponent(sid)}&cid=${encodeURIComponent(cid)}`,
+        `https://schoology-flashcards.fly.dev/flashcards/complete_course?sid=${encodeURIComponent(sid)}&cid=${encodeURIComponent(cid)}`,
         { method: 'POST' },
       )
     }

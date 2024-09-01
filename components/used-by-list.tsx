@@ -5,7 +5,7 @@ export default function UsedByList() {
   const [users, setUsers] = useState([]);
 
   async function updateUsers() {
-    let r = await fetch('http://localhost/flashcards/get_users');
+    let r = await fetch('https://schoology-flashcards.fly.dev/flashcards/get_users');
     setUsers(await r.json());
   }
 

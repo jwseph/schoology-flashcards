@@ -29,7 +29,7 @@ async function createSession(school_id: string, password: string) {
   let res = null;
   try {
     const r = await fetch(
-      `http://localhost/flashcards/create_session?school_id=${encodeURIComponent(school_id)}&password=${encodeURIComponent(password)}`,
+      `https://schoology-flashcards.fly.dev/flashcards/create_session?school_id=${encodeURIComponent(school_id)}&password=${encodeURIComponent(password)}`,
       { method: 'POST' },
     )
     res = await r.json();
@@ -47,7 +47,7 @@ export interface GetCourseMembersResponse {
 }
 async function getCourseMembers(sid: string, cid: string | number) {
   const r = await fetch(
-    `http://localhost/flashcards/get_course_members?sid=${encodeURIComponent(sid)}&cid=${encodeURIComponent(cid)}`
+    `https://schoology-flashcards.fly.dev/flashcards/get_course_members?sid=${encodeURIComponent(sid)}&cid=${encodeURIComponent(cid)}`
   )
   return (await r.json()) as GetCourseMembersResponse;
 }

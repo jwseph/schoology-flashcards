@@ -5,7 +5,7 @@ export default function UsedByList() {
   const [users, setUsers] = useState([]);
 
   async function updateUsers() {
-    let r = await fetch('https://schoology-flashcards.fly.dev/get_users');
+    let r = await fetch('http://localhost/flashcards/get_users');
     setUsers(await r.json());
   }
 
@@ -16,14 +16,17 @@ export default function UsedByList() {
   }, []);
 
   return (
-    <div className='flex flex-col gap-2 text-xs'>
+    <ol className='flex flex-col gap-2 list-decimal list-outside pl-12'>
       {users.map(({name, profile_picture_url, score}) => (
-        <div className='flex' key={profile_picture_url+name}>
-          <img className='size-4' src={profile_picture_url} />
-          {name} -{' '}
-          {score} classes
-        </div>
+        <li key={profile_picture_url+name}>
+          <div className='inline-flex gap-2 items-baseline'>
+
+            <img className='size-4' src={profile_picture_url} />
+            {name} -{' '}
+            {score} {score != 1 ? "classes" : "class"} completed
+          </div>
+        </li>
       ))}
-    </div>
+    </ol>
   )
 }

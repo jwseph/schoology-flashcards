@@ -12,6 +12,7 @@ import {
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 import UsedByList from "./used-by-list";
+import { fetchFlashcardsEndpoint } from "./lib/utils";
 
 interface FlashcardsProps {
   members: GetCourseMembersResponse;
@@ -49,8 +50,9 @@ export default function Flashcards({members, cid, sid}: FlashcardsProps) {
 
   useEffect(() => {
     if (completed && completed == Object.keys(members).length) {
-      fetch(
-        `https://schoology-flashcards.fly.dev/flashcards/complete_course?sid=${encodeURIComponent(sid)}&cid=${encodeURIComponent(cid)}`,
+
+      fetchFlashcardsEndpoint(
+        `complete_course?sid=${encodeURIComponent(sid)}&cid=${encodeURIComponent(cid)}`,
         { method: 'POST' },
       )
     }

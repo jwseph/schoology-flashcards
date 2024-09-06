@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
+import { fetchFlashcardsEndpoint } from "./lib/utils";
 
 
 export default function UsedByList() {
   const [users, setUsers] = useState([]);
 
   async function updateUsers() {
-    let r = await fetch('https://schoology-flashcards.fly.dev/flashcards/get_users');
+    let r = await fetchFlashcardsEndpoint('get_users');
     setUsers(await r.json());
   }
 

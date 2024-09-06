@@ -16,6 +16,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { linkStyle } from "@/lib/utils";
 import Link from "next/link";
+import { fetchFlashcardsEndpoint } from '@/components/lib/utils';
 
 export interface CourseItem {
   cid: string;
@@ -28,12 +29,13 @@ interface CreateSessionResponse {
 async function createSession(school_id: string, password: string) {
   let res = null;
   try {
-    const r = await fetch(
-      `https://schoology-flashcards.fly.dev/flashcards/create_session?school_id=${encodeURIComponent(school_id)}&password=${encodeURIComponent(password)}`,
+    const r = await fetchFlashcardsEndpoint(
+      `create_session?school_id=${encodeURIComponent(school_id)}&password=${encodeURIComponent(password)}`,
       { method: 'POST' },
     )
     res = await r.json();
-  } catch {
+  } catch (e) {
+    console.error(e);
   }
   return res as CreateSessionResponse;
 }
@@ -46,8 +48,8 @@ export interface GetCourseMembersResponse {
   [mid: string]: CourseMemberItem;
 }
 async function getCourseMembers(sid: string, cid: string | number) {
-  const r = await fetch(
-    `https://schoology-flashcards.fly.dev/flashcards/get_course_members?sid=${encodeURIComponent(sid)}&cid=${encodeURIComponent(cid)}`
+  const r = await fetchFlashcardsEndpoint(
+    `get_course_members?sid=${encodeURIComponent(sid)}&cid=${encodeURIComponent(cid)}`
   )
   return (await r.json()) as GetCourseMembersResponse;
 }
